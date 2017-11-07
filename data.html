@@ -14,47 +14,51 @@
 <h1>Data fra GPS</h1>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="action.html">Hovedside</a>
+    <a class="navbar-brand" href="index.html">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="map.html">View Map</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="data.html">Se data</a>
+                <a class="nav-link" href="data.html">Gps Data</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="https://google.dk" target="_blank">Instrucable</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Kontakt
+                    Extra
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="map.html">Position</a>
-                    <a class="dropdown-item" href="redw.html">Red Warzawa!<!doctype html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport"
-                                  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-                            <meta http-equiv="X-UA-Compatible" content="ie=edge">
-                            <title>Document</title>
-                        </head>
-                        <body>
+                    <a class="dropdown-item" href="redw.html">Red Warzawa!<!doctype html></a>
+                    <a class="dropdown-item" href="https://youtube.com" target="_blank">Youtube video</a>
 
-                        </body>
-                        </html></a>
-                    <a class="dropdown-item" href="#">Jonas' far</a>
                 </div>
             </li>
         </ul>
     </div>
 </nav>
 
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Longitude</th>
+            <th scope="col">Latitude</th>
+            <th scope="col">Altitude</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Speed</th>
+            <th scope="col">Time</th>
+        </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table></div>
 
 
 <!-- Optional JavaScript -->
@@ -67,102 +71,12 @@
 <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 <script src="gpsdata.js"></script>
 
-<script>
-    window.onload = function () {
-
-        var limit = 10000;    //increase number of dataPoints by increasing the limit
-        var y = 100;
-        var data = [];
-        var dataSeries = { type: "line" };
-        var dataPoints = [];
-        for (var i = 0; i < limit; i += 1) {
-            y += Math.round(Math.random() * 10 - 5);
-            dataPoints.push({
-                x: i,
-                y: y
-            });
-        }
-        dataSeries.dataPoints = dataPoints;
-        data.push(dataSeries);
-
-        $.ajax({
-            url: "https://joerha.dk/climate",
-            method: "GET",
-            success: function (data) {
-                data.data.forEach(function (t) {
-
-                })
-            }
-        })
-//Better to construct options first and then pass it as a parameter
-        var options = {
-            zoomEnabled: true,
-            animationEnabled: true,
-            title: {
-                text: "Er det ikke flot?"
-            },
-            axisX: {
-                labelAngle: 30
-            },
-            axisY: {
-                includeZero: false
-            },
-            data: data  // random data
-        };
-
-        $("#chartContainer").CanvasJSChart(options);
-
-    }
-</script>
-<div class="container-fluid">
-
-    <div class="row">
-        <div class="col">
 
 
-        </div>
 
 
-        <div class="col">
-
-            <!-- <img src="img/Fiatfest.jpg" alt="Flot billede" style="max-width: 100%;height: auto;"> -->
-        </div>-
-    </div>
-</div>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col">
-
-    <h2>Basic Table</h2>
-    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Type</th>
-            <th>Data</th>
-
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>John</td>
-            <td>Doe</td>
-
-        </tr>
-        <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-
-        </tr>
-        <tr>
-            <td>July</td>
-            <td>Dooley</td>
-
-        </tr>
-        </tbody>
-    </table>
-</div>
+</body>
+</html>
     <div class="col">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
         ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived
