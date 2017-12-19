@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> <link href="css/lightbox.css" rel="stylesheet">
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,13 +11,19 @@
 
 </head>
 <body>
-<h1>Hej og velkommen!</h1>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<style>
+    body {background-color: #71dbe6;}
+    h1   {color: #000000;}
+    p    {color: #fff300;}
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="index.html">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -38,29 +45,58 @@
                     <a class="dropdown-item" href="https://youtube.com" target="_blank">Youtube video</a>
 
                 </div>
+
             </li>
         </ul>
     </div>
 </nav>
 
-<div class="container-fluid">
 
+<div class="container-fluid" style="width: 99%">
+    <h1>Hej og velkommen!</h1>
     <div class="row">
-        <div class="col">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived
-            not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
-            1960s with the release of Letraset sheets containing
-            Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
+        <div class="col" style="width: 90%;border-radius: 10px; border: 2px solid #000000; background: #ffffff">
+            Dette er en hjemmeside vi har lavet for at præsentere Lars. Lars en er bil med krudt i, han kan køre meget stærkt.
+            På siden kan i se hvor han er har været under punkter "Position", det er pænt nice.
         </div>
 
 
-        <div class="col">
+<div class="col-lg-6">
+        <div class="row">
+        <div class="col-lg-6 col-md-4 col-xs-6">
+            <a href="img/bil1.jpg" class="d-block mb-3 h-1" data-lightbox="img/bil1.jpg">
+                <img class="img-fluid" style="max-width: 100%; border-radius: 20px; border: 2px solid #000000; height: auto;" src="img/bil1.jpg" alt="">
+            </a>
+            <a href="img/bil4.jpg" class="d-block mb-3 h-1" data-lightbox="img/bil3.jpg">
+                </a>
+            <a href="img/bil2motor.jpg" class="d-block mb-3 h-1" data-lightbox="img/bil3.jpg">
+            </a>
+            <a href="img/bil4.jpg" class="d-block mb-3 h-1" data-lightbox="img/bil3.jpg">
+            </a>
 
-<img src="img/Fiatfest.jpg" alt="Flot billede" style="max-width: 100%;height: auto;">
+        </div>
+        <div class="col-lg-6 col-md-4 col-xs-6">
+            <a href="img/bil1.jpg" class="d-block mb-3 h-1" data-lightbox="img/bil1.jpg">
+                <img class="img-fluid" style="max-width: 100%; border-radius: 20px; border: 2px solid #000000; height: auto;" src="img/bil4.jpg" alt="">
+            </a>
+        </div>
+        <div class="col-lg-6 col-md-4 col-xs-6">
+            <a href="img/bil3.jpg" class="d-block mb-1 h-1  " data-lightbox="img/bil3.jpg">
+                <img class="img-fluid" style="max-width: 100%; border-radius: 20px; border: 2px solid #000000; height: auto;" src="img/bil3.jpg" alt="">
+            </a>
+        </div>
+        <div class="col-lg-6 col-md-4 col-xs-6">
+            <a href="img/bil4.jpg" class="d-block mb-1 h-1" data-lightbox="img/bil4.jpg">
+                <img class="img-fluid" style="max-width: 100%; border-radius: 20px; border: 2px solid #000000; height: auto;" src="img/bil4.jpg" alt="">
+            </a>
+        </div>
         </div>
     </div>
+
+
+    </div>
+
 </div>
 
 <!-- Optional JavaScript -->
@@ -68,7 +104,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
+<script src="js/lightbox-plus-jquery.js"></script>
 
 
 </body>
