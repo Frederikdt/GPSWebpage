@@ -4,7 +4,7 @@ $(function () {
 function getData() {
     $.ajax({
         type: "GET",
-        url: "https://joerha.dk/gps/2/10",
+        url: "https://api.joerha.dk/gps/2/10",
         success: function (data) {
             updateView(data.data)
         }
