@@ -1,9 +1,11 @@
 var map = null;
 $(function () {
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
-        center: {lng: 10.402370, lat: 55.403756}
-    });
+    if ($('#googleScript').length > 0) {
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: {lng: 10.402370, lat: 55.403756}
+        });
+    }
     setInterval(gpsEntryList.fetch, 500);
 });
 
@@ -35,11 +37,11 @@ var GpsEntryList = function () {
             type: "GET",
             url: "https://api.joerha.dk/gps/2/" + list.fetchAmount,
             success: function (data) {
+                updateView(data.data);
                 var reversed = data.data.reverse();
                 reversed.forEach(function (element) {
                     list.add(element)
                 });
-                updateView(data.data);
             }
         });
     };
