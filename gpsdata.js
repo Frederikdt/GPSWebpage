@@ -1,18 +1,50 @@
+var map = null;
 $(function () {
-    setInterval(getData, 500);
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: {lng: 10.402370, lat: 55.403756}
+    });
+    setInterval(gpsEntryList.fetch, 500);
 });
 
+var GpsEntryList = function () {
+    var list = this;
 
-function getData() {
-    $.ajax({
-        type: "GET",
-        url: "https://api.joerha.dk/gps/2/10",
-        success: function (data) {
-            updateView(data.data);
-            updateMyMap(data.data)
+    this.list = [];
+    this.lastId = 0;
+    this.fetchAmount = 10;
+    this.setFetchAmount = function (amount) {
+        list.fetchAmount = amount;
+        list.lastId = 0
+    };
+    this.add = function (element) {
+        if (element.id > list.lastId) {
+            if (map !== null) {
+                element.marker = createMarker(element, map);
+            }
+            list.lastId = element.id;
+            list.list.push(element);
         }
-    });
-}
+        while (list.list.length > list.fetchAmount) {
+            var shifted = list.list.shift();
+            shifted.marker.setMap(null);
+        }
+    };
+    this.fetch = function () {
+        $.ajax({
+            type: "GET",
+            url: "https://api.joerha.dk/gps/2/" + list.fetchAmount,
+            success: function (data) {
+                var reversed = data.data.reverse();
+                reversed.forEach(function (element) {
+                    list.add(element)
+                });
+                updateView(data.data);
+            }
+        });
+    };
+};
+var gpsEntryList = new GpsEntryList();
 
 function updateView(data) {
     var gpsRows = "";
@@ -30,56 +62,9 @@ function updateView(data) {
     tableBody.html(gpsRows);
 }
 
-
-/*
-$(function(){
-
-   var $gpsdata = $('#gpsdata');
-
-   $.ajax({
-   type: 'GET',
-   url: 'https://joerha.dk/gps',
-   success: function(gpsdata) {
-   $.each(gpsdata, function(i, gpsdata){
-       $gpsdata.append()
-   });
-   }
-   });
-
-});
-*/
-var map = null;
-$(function () {
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
-        center: {lng: 10.402370, lat: 55.403756}
+function createMarker(gpsEntry, map) {
+    return new google.maps.Marker({
+        position: new google.maps.LatLng(gpsEntry.latitude, gpsEntry.longitude),
+        map: map
     });
-});
-var currentMarkers = [];
-
-function updateMyMap(gpsData) {
-    currentMarkers.forEach(function (marker) {
-        if (marker.delete) {
-            marker.setMap(null);
-        }
-    });
-
-    var preparedGpsData = [];
-    gpsData.forEach(function (element) {
-        preparedGpsData.push(new google.maps.LatLng(element.latitude, element.longitude));
-    });
-
-    currentMarkers.forEach(function (marker) {
-        marker.delete = true
-    });
-
-    preparedGpsData.forEach(function (element) {
-        var marker = new google.maps.Marker({
-            position: element,
-            map: map,
-            title: 'Hello World!'
-        });
-        currentMarkers.push(marker);
-    });
-
 }
