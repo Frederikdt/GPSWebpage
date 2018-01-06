@@ -25,25 +25,3 @@ function updateView(data) {
     var tableBody = $("#tableBody");
     tableBody.html(gpsRows);
 }
-
-
-
-
-
- /*
-$(function(){
-
-    var $gpsdata = $('#gpsdata');
-
-    $.ajax({
-    type: 'GET',
-    url: 'https://joerha.dk/gps',
-    success: function(gpsdata) {
-    $.each(gpsdata, function(i, gpsdata){
-        $gpsdata.append()
-    });
-    }
-    });
-
-});
-*/
